@@ -1,0 +1,12 @@
+# note di lavoro — non pubblicare sul sito / sul repo pubblico
+about_me.md
+compito.md
+cutting_stock_optimizer.md
+dstv_parser.md
+forge.md
+snapmark.md
+tag_generator.md
+
+# sistema
+.DS_Store
+Thumbs.db
