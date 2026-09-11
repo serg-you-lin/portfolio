@@ -651,9 +651,8 @@ h1 .hl::after {
     flex: none;
 }
 .ba__hint {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
+    display: inline-block;
+    margin-top: 10px;
     font-family: var(--mono);
     font-size: 0.72rem;
     color: var(--ink);
@@ -662,7 +661,7 @@ h1 .hl::after {
     padding: 4px 10px;
     border-radius: 2px;
 }
-.ba__stage:hover .ba__hint { color: var(--accent); border-color: var(--accent-deep); }
+.ba__stage:hover + .ba__hint { color: var(--accent); border-color: var(--accent-deep); }
 .ba.is-dopo .ba__state { color: var(--warm); border-color: var(--warm); }
 .ba.is-dopo .ba__dot { background: var(--warm); }
 .ba figcaption {

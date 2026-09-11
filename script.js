@@ -22,7 +22,7 @@
         var figure = baToggle.closest(".ba");
         var imgs = baToggle.querySelectorAll(".ba__img"); // [0] prima, [1] dopo
         var label = baToggle.querySelector(".ba__label");
-        var hint = baToggle.querySelector(".ba__hint");
+        var hint = figure ? figure.querySelector(".ba__hint") : null;
         var showingDopo = false;
 
         baToggle.addEventListener("click", function () {
@@ -41,8 +41,8 @@
             }
             if (hint) {
                 hint.textContent = showingDopo
-                    ? "clicca l'immagine per tornare al prima"
-                    : "clicca l'immagine per vedere il dopo";
+                    ? "clicca l'immagine per vedere la parte originale"
+                    : "clicca l'immagine per vedere la parte marcata";
             }
         });
     }
