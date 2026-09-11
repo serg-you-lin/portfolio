@@ -137,9 +137,17 @@ main {
 
 .section__head {
     display: flex;
-    align-items: baseline;
+    align-items: center;
+    justify-content: center;
     gap: 16px;
     margin-bottom: 36px;
+}
+.section__head::before,
+.section__head::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 12px);
 }
 .section__num {
     font-family: var(--mono);
@@ -151,11 +159,9 @@ main {
     flex: none;
 }
 .section__head h2 { font-size: clamp(1.5rem, 4vw, 2rem); margin: 0; }
-.section__rule {
-    flex: 1;
-    height: 1px;
-    background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 12px);
-}
+/* la riga tratteggiata ora è generata dal ::before/::after: simmetrica
+   attorno a numero + titolo invece di riempire solo lo spazio a destra */
+.section__rule { display: none; }
 
 .section__intro {
     color: var(--ink-dim);
@@ -720,6 +726,26 @@ h1 .hl::after {
     font-size: 0.82rem;
     color: var(--ink);
     overflow-wrap: break-word;
+}
+
+/* ---------------------------------------------------------------- allineamento centrale */
+body { text-align: center; }
+
+.prose,
+.hero__lede,
+.hero__identity,
+.section__intro,
+.project__tagline {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* bullet e blocchi di codice restano a sinistra: centrarli rompe il
+   marcatore/l'indentazione */
+.skillcol ul,
+.featlist,
+.code {
+    text-align: left;
 }
 
 /* ---------------------------------------------------------------- responsive */
