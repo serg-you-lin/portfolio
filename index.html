@@ -44,16 +44,15 @@
             </p>
 
             <h1 id="hero-title">
-                Costruisco strumenti che rendono
-                <span class="hl">lavorabili</span>
-                i disegni tecnici.
+                Costruisco strumenti che velocizzano il workflow di chi
+                <span class="hl">lavora</span>
+                con i disegni tecnici.
             </h1>
 
             <p class="hero__lede">
                 Python per l'officina: automazione della marcatura per il taglio laser,
                 parser di formati di nicchia, geometria computazionale. Due pacchetti
-                pubblicati su <span class="mono">PyPI</span>, che uso in officina su
-                alcuni lavori.
+                pubblicati su <span class="mono">PyPI</span>, che uso in officina.
             </p>
 
             <p class="hero__identity">
@@ -102,15 +101,15 @@
             <p>
                 Ho iniziato con il <strong>C#</strong>, qualche anno fa e molto brevemente.
                 Dovevo imparare tutto da zero, sbagliavo la sintassi di continuo, e mi
-                annoiavo: ho mollato. Oggi non ricordo nulla di C#, come non l'avessi
-                mai visto.
+                annoiavo: ho mollato. Onestamente non ricordo nulla della semantica di C#, 
+                ero solo affascinato da ciò che si potesse fare attraverso la programmazione.
             </p>
             <p>
-                Sono rientrato dalla porta di servizio. Ho ripreso in mano il codice con
+                Sono rientrato qualche anno dopo dalla porta di servizio. Ho ripreso in mano il codice con
                 <strong>Python</strong>, a complemento della parte di disegno CAD, convinto
-                che disegno e programmazione viaggino insieme. È capitato nello stesso
-                periodo in cui uscivano le prime versioni dei modelli di linguaggio: erano
-                lenti, ma mi hanno aiutato a costruirmi un percorso e a imparare i rudimenti
+                che disegno e programmazione fossero due facce della stessa medaglia. Era il
+                periodo in cui uscivano le prime versioni dei modelli di linguaggio, molto più 
+                rudimentali di oggi, ma mi hanno aiutato a costruire un percorso per poter apprendere le basi
                 della programmazione.
             </p>
             <p>
@@ -137,10 +136,6 @@
             <h2 id="competenze-title">Competenze</h2>
             <span class="section__rule" aria-hidden="true"></span>
         </div>
-
-        <p class="section__intro">
-            Non una griglia di loghi. Le cose che so fare, con il contesto in cui le ho fatte.
-        </p>
 
         <div class="skills">
             <article class="skillcol">
@@ -206,7 +201,7 @@
                     disordinati, e ogni lavoro parte con ore spese a renderli lavorabili
                     secondo lo standard aziendale. La prima versione — <span class="mono">dxf-forge</span> —
                     omologava i layer e splittava i file. Nasceva per elaborare solo file <strong>DXF</strong> 
-                    sia in entrata che in uscita, era uan sorta di scriptone. Il codice è cresciuto a un 
+                    sia in entrata che in uscita, era una sorta di scriptone. Il codice è cresciuto a un 
                     punto di rottura, tra dead code, funzioni duplicate, god classes e chi + ne ha + ne metta.
                 </p>
                 <p>
@@ -226,11 +221,11 @@
                             </marker>
                         </defs>
                         <g class="d-dim">
-                            <rect x="20" y="60" width="110" height="46" rx="2"/>
-                            <text x="75" y="80">DXF</text>
-                            <text x="75" y="96" class="d-small">e altri</text>
+                            <rect x="15" y="60" width="120" height="46" rx="2"/>
+                            <text x="75" y="80">Disegno grezzo</text>
+                            <text x="75" y="96" class="d-small">(DXF e altri)</text>
                         </g>
-                        <line x1="130" y1="83" x2="235" y2="83" marker-end="url(#arrow)"/>
+                        <line x1="135" y1="83" x2="235" y2="83" marker-end="url(#arrow)"/>
                         <text x="182" y="74" class="d-small d-mid">adapter</text>
 
                         <g class="d-core">
@@ -287,19 +282,20 @@
                     a mano prima del CAM.
                 </p>
             </header>
-
+D
             <div class="project__body prose">
                 <p>
                     È stato il mio primo progetto reale, nato da un'esigenza in azienda:
-                    segnalare con marcatura laser le parti che venivano già tagliate.
-                    Sono partito da uno script disordinato; quello mi ha fatto capire che
-                    mi mancava qualcosa, così ho ingaggiato un tutor per alcuni mesi. È lì
-                    che ho fatto il salto — su architettura, su performance di calcolo, sul
+                    segnalare con marcatura laser i nomi della parte direttamente sul pezzo, 
+                    per poter essere individuate in fase di scarico.
+                    Sono partito da uno script disordinato, ben presto mi sono accorto di avere grossi limiti.
+                    Ho quindi "ingaggiato" un tutor per alcuni mesi, che mi ha fatto fare un salto
+                    di qualità a livello di architettura, performance di calcolo,
                     modo di leggere il codice.
                 </p>
                 <p>
-                    Poi l'ho portato avanti da solo: gestione dei warning, documentazione,
-                    test, suddivisione in moduli, API pubbliche e shortcut. E funzioni per
+                    In seguito ho sviluppato il codice aggiungendo gestione dei warning, documentazione,
+                    test, suddivisione in moduli, API pubbliche e shortcut. Il codice contiene ora funzioni per
                     manipolare le entità in modo che arrivino al CAM già pronte, senza
                     lavoro extra per l'operatore.
                 </p>
@@ -352,6 +348,13 @@
                     </figcaption>
                 </figure>
 
+                <p>
+                    Ci ho tenuto a fornire più flessibilità possibile nella costruizione della stringa di marcatura,
+                    automatizzata e customizzabile nel controllo dei vari caratteri.
+                    Di per se. il SequenceBuilder può essere definito un <strong>piccolo software</strong> 
+                    all'interno di Snapmark stesso.
+                </p>
+
                 <pre class="code"><code><span class="c-c"># costruisci una sequenza di marcatura leggibile</span>
 seq = (
     sm.<span class="c-f">SequenceBuilder</span>()
@@ -374,7 +377,7 @@ sm.<span class="c-f">mark_with_sequence</span>(<span class="c-s">"C:/DXF"</span>
                 <p class="project__note">
                     Ho registrato un <a href="https://www.linkedin.com/feed/update/urn:li:activity:7469698755500560384/" target="_blank" rel="noopener">video su come iniziare a usare SnapMark</a>.
                     Sul mio <a href="https://www.linkedin.com/in/federico-sidraschi-059a961b9/" target="_blank" rel="noopener">profilo LinkedIn</a>
-                    ci sono altri accattivanti video 😂 sulle singole funzionalità.
+                    su possono trovare altri video su alcuni funzionalità e modi d'uso.
                 </p>
 
                 <div class="project__meta">
@@ -408,7 +411,7 @@ sm.<span class="c-f">mark_with_sequence</span>(<span class="c-s">"C:/DXF"</span>
                     </p>
                     <p>
                         È il progetto dove ho capito quanto una tipizzazione seria cambi la
-                        leggibilità: prima di allora tenevo tutto in dizionari.
+                        leggibilità: prima di allora tenevo tutto in dizionari. 
                     </p>
                     <pre class="code code--sm"><code><span class="c-c">// frammento di un file DSTV NC</span>
 ST
@@ -436,14 +439,20 @@ EN</code></pre>
                     <p>
                         Da un ottimizzatore in Excel trovato online — da compilare a mano —
                         a uno strumento Python che può lavorare direttamente sulle distinte.
-                        Dice quante <strong>barre commerciali</strong> di profilo, di solito
-                        in acciaio, servono per completare un progetto.
+                        Dice quante <strong>barre commerciali</strong> di profilo, tipicamente acciaio, 
+                        sono necessarie per completare un progetto. Tiene traccia anche di eventuali codici abbinati 
+                        ai tagli e a quale stock appartengono.
                     </p>
                     <p>
-                        La parte mia sono le <strong>combinazioni</strong>: gestire alcune
+                        La parte mia aggiuntiva sono le <strong>combinazioni</strong>: gestire alcune
                         parti come “giunte” per non lasciare troppo sfrido su una barra.
-                        È lì che è diventato un problema di ottimizzazione con vincoli, non
-                        una somma di lunghezze.
+                        La cosa si è rivelata più complessa del previsto e ho dovuto lavorare molto a livello 
+                        di ragionamento algoritmico per ottenere un risultato soddisfacente.
+                    </p>
+                    <p>
+                        Con la maturità tecnica acquisita oggi, riprogetterei il sistema per garantirne la piena 
+                        interoperabilità con i file <strong>DSTV</strong>. Ad ogni modo potrebbe diventare un modulo personalizzabile 
+                        qualora sorgesse la necessità di sviluppare una verticalizzazione specifica.
                     </p>
                     <figure class="diagram diagram--inline">
                         <svg viewBox="0 0 320 80" role="img" aria-labelledby="cut-diagram-title">
@@ -459,10 +468,14 @@ EN</code></pre>
                                 <line x1="150" y1="28" x2="150" y2="54"/>
                                 <line x1="210" y1="28" x2="210" y2="54"/>
                                 <line x1="255" y1="28" x2="255" y2="54"/>
+                                <text x="40" y="20" class="d-small">P1</text>
+                                <text x="110" y="20" class="d-small">P2</text>
+                                <text x="180" y="20" class="d-small">P3</text>
+                                <text x="230" y="20" class="d-small">P4</text>
                             </g>
                             <g class="d-hatch">
                                 <rect x="255" y="28" width="55" height="26"/>
-                                <text x="282" y="20" class="d-small">sfrido</text>
+                                <text x="282" y="20" class="d-small">waste</text>
                             </g>
                         </svg>
                     </figure>
@@ -480,14 +493,22 @@ EN</code></pre>
                 </header>
                 <div class="project__body">
                     <p>
-                        Un progetto piccolo, scritto <strong>quasi senza AI</strong>. Genera
-                        targhette numerate, in formato DXF, pronte quindi per il taglio
-                        laser. Le dimensioni sono parametriche. Le cifre sono disegnate
+                        Un progetto piccolo, scritto <strong>quasi senza AI</strong>, tranne 
+                        una necessaria ripulita molto generalizzata per la pubblicazione su GitHub.
+                        Si tratta di un generatore automatico ditarghette numerate in formato DXF, 
+                        pronte quindi per il taglio laser.
+                        Le dimensioni di cornice e cifre sono parametriche. Le cifre sono disegnate
                         a segmenti, come su un display digitale.
                     </p>
                     <p>
                         L'ho fatto anche per misurare cosa so scrivere da solo: geometria
                         di base, parametri, un export DXF pulito.
+                    </p>
+                    <p>
+                        Avrei potuto espanderlo per renderlo alfanumerico, o per gestire più cifre 
+                        (gestisce solo 0-99). Mi sono chiesto:
+                        "ha senso andare avanti a costruire feature aggiuntive?" 
+                        la risposta è stata 'NO'.
                     </p>
                     <figure class="diagram diagram--inline">
                         <svg viewBox="0 0 220 90" role="img" aria-labelledby="tag-diagram-title">

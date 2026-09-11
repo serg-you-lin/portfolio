@@ -63,10 +63,11 @@
                 leggibili per una persona, ma non conformi allo standard con cui li
                 lavoriamo. Prima ancora di iniziare il lavoro vero devo investire molto
                 tempo per sistemarli — layer, blocchi, riferimenti — e renderli
-                lavorabili.
+                lavorabili. Il lavoro era molto ripetitivo e i task quasi sempre gli stessi
             </p>
             <p>
-                Volevo togliermi quel lavoro ripetitivo di dosso.
+                Questo ha fatto accendere il mio lato "lazy". 
+                Se sembra che una task possa essere automatizzabile, bisogna fare un tentativo per renderla tale.
             </p>
         </div>
     </section>
@@ -80,14 +81,15 @@
         </div>
         <div class="prose">
             <p>
-                All'inizio si chiamava <span class="mono">dxf-forge</span>. Prendeva un
-                DXF, omologava i layer secondo lo standard aziendale, e splittava i file
-                aggiungendo i dati. Lo usavo in accoppiata con
+                Il primo nome del progetto è stato <span class="mono">dxf-forge</span>. Prendeva un file
+                DXF (uno standard CAD nel contesto manifatturiero 2D), omologava i layer secondo lo standard aziendale, 
+                opzionalmente splittava le varie 'parti' su file a se stante, 
+                arricchendoli con alcuni dati. Lo usavo in accoppiata con
                 <a href="index.html#snapmark">SnapMark</a>, che si occupava della
                 marcatura.
             </p>
             <p>
-                Era già organizzato discretamente. Ma era cresciuto per aggiunte
+                Ho cercato di organizzarlo in modo modulare fin dall'inizio, ma crescendo per aggiunte
                 successive, una funzione alla volta, senza un disegno d'insieme.
             </p>
         </div>
@@ -103,8 +105,8 @@
         <div class="prose">
             <p>
                 A un certo punto la confusione era tanta. Dead code che non sapevo più
-                se potevo togliere, funzioni duplicate con piccole differenze, e una
-                <strong>god class</strong> che faceva troppe cose e teneva insieme tutto.
+                se potevo togliere, funzioni che si occupavano dello stesso compito in due punti diversi della pipeline,
+                una <strong>god class</strong> che faceva troppe cose e teneva insieme tutto.
             </p>
             <p>
                 Il programma funzionava. Ma ogni modifica costava più di quanto valeva,
@@ -131,7 +133,7 @@
                 È stata la scelta più difficile del progetto, perché il codice
                 “funzionava” e fermarsi vuol dire rinunciare per mesi a qualsiasi
                 risultato visibile. Ma continuare ad aggiungere su una base rotta
-                significava solo rendere il problema più grande.
+                significava solo rendere il problema più grande e misterioso.
             </p>
         </div>
     </section>
@@ -156,7 +158,7 @@
                 possibile</strong>, così che ogni oggetto dica cosa contiene. Secondo:
                 rendere <strong>interrogabili</strong> le parti che non mi erano chiare —
                 invece di dizionari generici che passano di funzione in funzione, oggetti
-                che si possono ispezionare e a cui si possono fare domande.
+                che si possono ispezionare in caso di bug o files strani in input.
             </p>
             <p>
                 Ho letteralmente rivoltato l'intero progetto come un calzino.
@@ -178,14 +180,27 @@
                 pasto a un software, non a una persona.
             </p>
             <p>
-                UCS e WCS scambiati, allineamenti Z non compatibili, entità disegnate
-                su piani che per l'occhio sono “giusti” e per una CAM no. Un umano
-                guarda il foglio e capisce; il software prende le coordinate così come
-                sono e sbaglia. Gran parte del lavoro dell'adapter di caricamento è
-                proprio raddrizzare queste cose prima che arrivino al core.
+                UCS e WCS scambiati, allineamenti Z non coerenti, entità disegnate su piani che per 
+                l'occhio sono corretti ma che per una CAM non lo sono. Un umano guarda il disegno e 
+                ricostruisce facilmente l'intenzione; il software vede soltanto coordinate e 
+                proprietà geometriche. Se quelle informazioni non sono coerenti, il risultato può 
+                essere semplicemente sbagliato.
             </p>
             <p>
-                Questa comprensione è diventata parte del progetto quanto l'architettura.
+                Una parte importante del lavoro dell'adapter di importazione è quindi normalizzare 
+                l'input prima che arrivi al core: sistemi di riferimento, piani, entità e layer 
+                devono essere ricondotti a una struttura coerente.
+            </p>
+            <p>
+                È una parte del progetto che non avevo previsto all'inizio e che invece è diventata 
+                centrale. I software commerciali che arrivano dopo il Forge fanno già molto bene il 
+                loro lavoro: il problema è arrivarci con dati abbastanza puliti e coerenti da poter 
+                essere elaborati senza doverli correggere manualmente ogni volta.
+            </p>
+            <p>
+                Omologare entità, layer e geometrie significa togliere dal flusso una parte del 
+                lavoro più tedioso e fornire ai software che dialogano con i macchinari di 
+                produzione un input più prevedibile e gestibile.
             </p>
         </div>
     </section>
@@ -216,11 +231,11 @@
                         </marker>
                     </defs>
                     <g class="d-dim">
-                        <rect x="20" y="60" width="110" height="46" rx="2"/>
-                        <text x="75" y="80">DXF</text>
-                        <text x="75" y="96" class="d-small">e altri</text>
+                        <rect x="15" y="60" width="120" height="46" rx="2"/>
+                        <text x="75" y="80">Disegno gezzo</text>
+                        <text x="75" y="96" class="d-small">(DXF e altri)</text>
                     </g>
-                    <line x1="130" y1="83" x2="235" y2="83" marker-end="url(#arrow)"/>
+                    <line x1="135" y1="83" x2="235" y2="83" marker-end="url(#arrow)"/>
                     <text x="182" y="74" class="d-small d-mid">adapter</text>
 
                     <g class="d-core">
@@ -238,14 +253,14 @@
 
                     <line x1="320" y1="160" x2="320" y2="205" marker-end="url(#arrow)"/>
                     <g class="d-dim">
-                        <rect x="180" y="210" width="280" height="60" rx="2"/>
+                        <rect x="150" y="210" width="340" height="60" rx="2"/>
                         <text x="320" y="234" class="d-small">interpreti: lamiere · cartigli</text>
-                        <text x="320" y="256" class="d-strong">→ solver di disegno</text>
+                        <text x="320" y="256" class="d-strong">→ solver di disegno (possibile futuro)</text>
                     </g>
                 </svg>
                 <figcaption>
                     Input eterogeneo → nucleo unico → export. Sotto, i moduli di
-                    interpretazione che stanno convergendo verso il solver.
+                    interpretazione che potranno convergere verso il solver.
                 </figcaption>
             </figure>
         </div>
@@ -269,8 +284,13 @@
             </p>
             <p>
                 Quello che non è cambiato è che le decisioni di struttura, e il perché
-                di ogni scelta, restano mie. Se non so spiegare una riga, quella riga
-                non è pronta (non esageriamo, ma mi piace capire cosa è stato fatto, ecco).
+                di ogni scelta, restano mie. Se una feature non si comporta come mi aspetto,
+                quella feature non è pronta.
+            </p>
+            <p>
+                Per questo mootivo forge è stato il primo progetto in cui ho implementato test ad ogni 
+                livello, compresi files reali su cui so cosa aspettarmi. Senza questa copertura, il refactoring
+                di questa estate sarebbe stato letteralmente impossibile.
             </p>
         </div>
     </section>
@@ -291,10 +311,14 @@
                 informazioni anche a livello commerciale.
             </p>
             <p>
-                L'obiettivo di fondo è ambizioso: dare a un agente la possibilità di
-                interpretare un disegno tecnico senza dover badare ai calcoli, alle
-                duplicazioni, ai sistemi di riferimento sbagliati. È in costruzione, ma
-                è la direzione.
+                L'obiettivo di fondo è ambizioso: dare a un agente la possibilità di interpretare 
+                un disegno tecnico senza dover badare ai calcoli, alle duplicazioni o ai sistemi 
+                di riferimento sbagliati. L'estendibilità del core nasce anche per questo.
+            </p>
+            <p>
+                I moduli necessari per arrivarci sono ancora in una fase poco più che embrionale. 
+                <strong>Il solver non esiste ancora</strong>: è la direzione verso cui mi 
+                piacerebbe portare il progetto.
             </p>
         </div>
     </section>
